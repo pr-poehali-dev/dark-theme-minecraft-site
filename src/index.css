@@ -2,91 +2,62 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&display=swap");
+
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 24 15% 6%;
+    --foreground: 38 60% 85%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 24 15% 8%;
+    --card-foreground: 38 60% 85%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 24 15% 8%;
+    --popover-foreground: 38 60% 85%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 35 80% 50%;
+    --primary-foreground: 24 15% 6%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 24 20% 14%;
+    --secondary-foreground: 38 60% 85%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 24 20% 14%;
+    --muted-foreground: 38 30% 55%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 35 80% 50%;
+    --accent-foreground: 24 15% 6%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 62% 40%;
+    --destructive-foreground: 38 60% 85%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 35 40% 22%;
+    --input: 35 40% 22%;
+    --ring: 35 80% 50%;
 
-    --radius: 0.5rem;
+    --radius: 0.25rem;
 
-    --sidebar-background: 0 0% 98%;
+    --sidebar-background: 24 15% 6%;
+    --sidebar-foreground: 38 60% 85%;
+    --sidebar-primary: 35 80% 50%;
+    --sidebar-primary-foreground: 24 15% 6%;
+    --sidebar-accent: 24 20% 14%;
+    --sidebar-accent-foreground: 38 60% 85%;
+    --sidebar-border: 35 40% 22%;
+    --sidebar-ring: 35 80% 50%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Steampunk palette */
+    --copper: #b87333;
+    --copper-light: #d4956a;
+    --copper-bright: #e8a87c;
+    --brass: #c9a84c;
+    --brass-light: #dfc06e;
+    --bronze: #8b6914;
+    --iron: #4a4a52;
+    --rust: #8b3a2a;
+    --steam: #c8d8e8;
+    --coal: #1a1410;
+    --parchment: #f0e6c8;
+    --leather: #6b4c2a;
   }
 }
 
@@ -97,18 +68,101 @@
 
   body {
     @apply bg-background text-foreground;
+    background-color: #0f0a06;
   }
 }
 
-@layer utilities {
-  .font-rubik {
-    font-family: "Rubik", sans-serif;
-  }
-  .font-oswald {
-    font-family: "Oswald", sans-serif;
-  }
+/* Steampunk scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #1a1008;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #b87333, #8b6914);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #d4956a, #c9a84c);
 }
 
+/* Gear spin animation */
+@keyframes gear-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes gear-spin-reverse {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+@keyframes steam-rise {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scaleX(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translateY(-30px) scaleX(1.3);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-60px) scaleX(0.8);
+  }
+}
+@keyframes flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  92% {
+    opacity: 1;
+  }
+  93% {
+    opacity: 0.7;
+  }
+  94% {
+    opacity: 1;
+  }
+  96% {
+    opacity: 0.8;
+  }
+  97% {
+    opacity: 1;
+  }
+}
+@keyframes ember-float {
+  0% {
+    opacity: 0;
+    transform: translateY(0) translateX(0);
+  }
+  20% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-80px) translateX(20px);
+  }
+}
+@keyframes pipe-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 8px rgba(184, 115, 51, 0.4);
+  }
+  50% {
+    box-shadow:
+      0 0 20px rgba(184, 115, 51, 0.8),
+      0 0 40px rgba(184, 115, 51, 0.3);
+  }
+}
 @keyframes fade-in {
   from {
     opacity: 0;
@@ -119,7 +173,145 @@
     transform: translateY(0);
   }
 }
+@keyframes rivet-pop {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 
+.animate-gear-spin {
+  animation: gear-spin 8s linear infinite;
+}
+.animate-gear-spin-slow {
+  animation: gear-spin 14s linear infinite;
+}
+.animate-gear-reverse {
+  animation: gear-spin-reverse 10s linear infinite;
+}
+.animate-steam {
+  animation: steam-rise 3s ease-out infinite;
+}
+.animate-flicker {
+  animation: flicker 4s ease-in-out infinite;
+}
+.animate-ember {
+  animation: ember-float 4s ease-out infinite;
+}
+.animate-pipe-pulse {
+  animation: pipe-pulse 2s ease-in-out infinite;
+}
 .animate-fade-in {
   animation: fade-in 0.6s ease-out both;
+}
+.animate-rivet {
+  animation: rivet-pop 0.4s ease-out both;
+}
+
+/* Steampunk metal texture */
+.metal-plate {
+  background: linear-gradient(135deg, #2a1f10 0%, #1e1508 50%, #2a1f10 100%);
+  border: 1px solid #b87333;
+  position: relative;
+}
+.metal-plate::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(184, 115, 51, 0.03) 10px,
+    rgba(184, 115, 51, 0.03) 20px
+  );
+  pointer-events: none;
+}
+
+/* Riveted border */
+.riveted {
+  position: relative;
+}
+.riveted::before,
+.riveted::after {
+  content: "⬤ ⬤";
+  position: absolute;
+  color: #8b6914;
+  font-size: 6px;
+  letter-spacing: 4px;
+}
+.riveted::before {
+  top: 6px;
+  left: 8px;
+}
+.riveted::after {
+  bottom: 6px;
+  right: 8px;
+}
+
+/* Copper text glow */
+.copper-glow {
+  text-shadow:
+    0 0 20px rgba(184, 115, 51, 0.8),
+    0 0 40px rgba(184, 115, 51, 0.4);
+}
+.brass-glow {
+  text-shadow:
+    0 0 20px rgba(201, 168, 76, 0.8),
+    0 0 40px rgba(201, 168, 76, 0.4);
+}
+
+/* Steam pipe decoration */
+.pipe-h {
+  height: 6px;
+  background: linear-gradient(to bottom, #5a4a3a, #3a2a1a, #5a4a3a);
+  border-radius: 3px;
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+.pipe-joint {
+  width: 12px;
+  height: 12px;
+  background: radial-gradient(circle at 40% 35%, #d4956a, #8b6914);
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Parchment card */
+.parchment-card {
+  background: linear-gradient(
+    160deg,
+    rgba(42, 25, 8, 0.95),
+    rgba(15, 10, 6, 0.98)
+  );
+  border: 1px solid rgba(184, 115, 51, 0.35);
+  position: relative;
+}
+.parchment-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at top left,
+    rgba(184, 115, 51, 0.05),
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+@layer utilities {
+  .font-rubik {
+    font-family: "Rubik", sans-serif;
+  }
+  .font-oswald {
+    font-family: "Oswald", sans-serif;
+  }
 }
