@@ -96,6 +96,16 @@ export default function Index() {
       <div className="fixed inset-0 opacity-[0.03] pointer-events-none z-0"
         style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")` }} />
 
+      {/* TOP ANNOUNCEMENT BANNER */}
+      <div className="relative z-50 w-full flex items-center justify-center gap-3 px-4 py-2.5 text-sm font-bold"
+        style={{ background: "linear-gradient(90deg, #78350f, #b45309, #d97706, #b45309, #78350f)", borderBottom: "1px solid rgba(251,191,36,0.4)" }}>
+        <span className="text-yellow-200 animate-pulse">⚙️</span>
+        <span style={{ color: "#fef3c7", textShadow: "0 0 10px rgba(251,191,36,0.6)" }}>
+          Нужна сборка Steampunk [LPS] v18
+        </span>
+        <span className="text-yellow-200 animate-pulse">⚙️</span>
+      </div>
+
       {/* NAV */}
       <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-4"
         style={{ background: "linear-gradient(to bottom, rgba(8,12,16,0.95), transparent)", backdropFilter: "blur(12px)" }}>
@@ -108,6 +118,8 @@ export default function Index() {
         </div>
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
           <a href="#stats" className="hover:text-white transition-colors">Сервер</a>
+          <a href="#screenshots" className="hover:text-white transition-colors">Галерея</a>
+          <a href="#donate" className="hover:text-white transition-colors">Донат</a>
         </div>
         <button onClick={copyIP}
           className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 hover:scale-105"
@@ -179,7 +191,7 @@ export default function Index() {
           </div>
 
           <div className="mt-6 text-gray-500 text-sm">
-            Java Edition · 1.16 – 1.21 · Лицензия не требуется
+            Java Edition · 1.20.1 · Лицензия не требуется
           </div>
         </div>
 
@@ -209,6 +221,85 @@ export default function Index() {
       </section>
 
 
+
+      {/* SCREENSHOTS */}
+      <section id="screenshots" className="py-20 px-6 md:px-12">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-14">
+            <span className="inline-block text-xs font-bold tracking-[0.3em] uppercase mb-4"
+              style={{ color: "#4ade80" }}>Галерея</span>
+            <h2 className="font-oswald font-bold text-5xl md:text-6xl text-white">
+              МИР STEAMPUNK
+            </h2>
+            <p className="text-gray-400 mt-4 max-w-xl mx-auto">
+              Посмотри, как выглядит наш сервер — поезда, города и удивительные постройки
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* Big screenshot left */}
+            <div className="relative rounded-2xl overflow-hidden group cursor-pointer"
+              style={{ border: "1px solid rgba(255,255,255,0.08)" }}>
+              <img
+                src="https://cdn.poehali.dev/files/5759ebd2-ae7c-4673-bdd2-686a70b13f62.png"
+                alt="Steampunk мир — вид сверху"
+                className="w-full h-72 md:h-96 object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                style={{ background: "linear-gradient(to top, rgba(8,12,16,0.85) 0%, transparent 60%)" }} />
+              <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                <p className="text-white font-semibold text-sm">Вид на станцию и железные дороги</p>
+              </div>
+            </div>
+
+            {/* Right column — 2 smaller */}
+            <div className="flex flex-col gap-4">
+              <div className="relative rounded-2xl overflow-hidden group cursor-pointer"
+                style={{ border: "1px solid rgba(255,255,255,0.08)" }}>
+                <img
+                  src="https://cdn.poehali.dev/files/086a139e-0ebc-4487-af6a-47a9f75696b1.png"
+                  alt="Steampunk — закат на станции"
+                  className="w-full h-44 object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  style={{ background: "linear-gradient(to top, rgba(8,12,16,0.85) 0%, transparent 60%)" }} />
+                <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                  <p className="text-white font-semibold text-sm">Закат на станции с эмеральдовым деревом</p>
+                </div>
+              </div>
+
+              <div className="relative rounded-2xl overflow-hidden group cursor-pointer"
+                style={{ border: "1px solid rgba(255,255,255,0.08)" }}>
+                <img
+                  src="https://cdn.poehali.dev/files/d9ce0188-b47a-4a6d-b4c8-57987d6d7eed.png"
+                  alt="Steampunk — туманный город"
+                  className="w-full h-44 object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  style={{ background: "linear-gradient(to top, rgba(8,12,16,0.85) 0%, transparent 60%)" }} />
+                <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                  <p className="text-white font-semibold text-sm">Туманный город с паровозом</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Fourth screenshot full-width */}
+          <div className="mt-4 relative rounded-2xl overflow-hidden group cursor-pointer"
+            style={{ border: "1px solid rgba(255,255,255,0.08)" }}>
+            <img
+              src="https://cdn.poehali.dev/files/f214e055-0ec4-4340-a214-145ac93121b2.png"
+              alt="Steampunk — зимний город"
+              className="w-full h-64 md:h-80 object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              style={{ background: "linear-gradient(to top, rgba(8,12,16,0.85) 0%, transparent 60%)" }} />
+            <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+              <p className="text-white font-semibold text-sm">Зимний город с башней и эмеральдовым деревом</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* DONATE */}
       <section id="donate" className="py-20 px-6 md:px-12">
@@ -298,7 +389,7 @@ export default function Index() {
               <Icon name={copied ? "Check" : "Copy"} size={18} />
               {copied ? "Скопировано!" : `Скопировать IP: ${SERVER_IP}`}
             </button>
-            <div className="mt-4 text-gray-500 text-xs">Java 1.16–1.21 · Bedrock Edition поддерживается</div>
+            <div className="mt-4 text-gray-500 text-xs">Java Edition 1.20.1</div>
           </div>
         </div>
       </section>
