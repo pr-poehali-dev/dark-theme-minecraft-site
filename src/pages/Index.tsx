@@ -236,10 +236,29 @@ function PipeBar({ color = C.copper }: { color?: string }) {
 export default function Index() {
   const [copied, setCopied] = useState(false);
 
-  const copyIP = () => {
-    navigator.clipboard.writeText(SERVER_IP);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+  const copyIP = async () => {
+    try {
+      await navigator.clipboard.writeText(SERVER_IP);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // Fallback for browsers that don't support clipboard API
+      const textArea = document.createElement("textarea");
+      textArea.value = SERVER_IP;
+      textArea.style.position = "fixed";
+      textArea.style.opacity = "0";
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      try {
+        document.execCommand("copy");
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      } catch {
+        // silent fail
+      }
+      document.body.removeChild(textArea);
+    }
   };
 
   return (
@@ -838,13 +857,26 @@ export default function Index() {
           </div>
 
           <div className="flex items-center gap-6 text-sm" style={{ color: C.bronze }}>
-            {["Правила", "Discord", "VK", "Telegram"].map((link) => (
-              <a key={link} href="#"
-                className="transition-colors duration-200 hover:text-yellow-400"
-                style={{ color: "#8b6030" }}>
-                {link}
-              </a>
-            ))}
+            <a href="#"
+              className="transition-colors duration-200 hover:text-yellow-400"
+              style={{ color: "#8b6030" }}>
+              Правила
+            </a>
+            <a href="https://discord.gg/FmJgfXfAZ" target="_blank" rel="noopener noreferrer"
+              className="transition-colors duration-200 hover:text-yellow-400"
+              style={{ color: "#8b6030" }}>
+              Discord
+            </a>
+            <a href="#"
+              className="transition-colors duration-200 hover:text-yellow-400"
+              style={{ color: "#8b6030" }}>
+              VK
+            </a>
+            <a href="#"
+              className="transition-colors duration-200 hover:text-yellow-400"
+              style={{ color: "#8b6030" }}>
+              Telegram
+            </a>
           </div>
 
           <div className="text-xs" style={{ color: "#4a3020" }}>
