@@ -2,64 +2,9 @@ import { useState } from "react";
 import Icon from "@/components/ui/icon";
 
 const HERO_IMAGE = "https://cdn.poehali.dev/projects/02d41f7e-f989-4075-89dd-56e64542b5a2/files/d14ff8b4-304c-4d5a-91d8-c9f7712f2268.jpg";
-const SERVER_IP = "play.craftworld.ru";
+const SERVER_IP = "188.127.241.24:32398";
 
-const gameModes = [
-  {
-    icon: "⚔️",
-    name: "Survival",
-    tag: "ВЫЖИВАНИЕ",
-    color: "#4ade80",
-    players: "128",
-    desc: "Классическое выживание с экономикой, кланами и рейдами. Стройте базы, торгуйте с игроками и завоёвывайте мир.",
-    features: ["Кланы и альянсы", "Аукцион и экономика", "Кастомные боссы", "Сезонные ивенты"],
-  },
-  {
-    icon: "🌩️",
-    name: "SkyWars",
-    tag: "МИНИ-ИГРА",
-    color: "#60a5fa",
-    players: "64",
-    desc: "Сражайтесь на парящих островах! Собирайте ресурсы, строите мосты и уничтожайте врагов прежде, чем они доберутся до вас.",
-    features: ["12 уникальных карт", "Рейтинговая система", "Кастомные наборы", "Турниры 2v2"],
-  },
-  {
-    icon: "💥",
-    name: "BedWars",
-    tag: "МИНИ-ИГРА",
-    color: "#f472b6",
-    players: "96",
-    desc: "Защитите свою кровать и уничтожьте кровати врагов! Командные бои, стратегия и молниеносные рейды.",
-    features: ["4v4 команды", "Апгрейды базы", "Трекер статистики", "Еженедельный топ"],
-  },
-  {
-    icon: "🏗️",
-    name: "Creative",
-    tag: "ТВОРЧЕСТВО",
-    color: "#fb923c",
-    players: "32",
-    desc: "Бесконечные возможности для строительства. Личные участки, полный доступ к блокам и WorldEdit для мастеров.",
-    features: ["Личные участки", "WorldEdit доступ", "Плот-конкурсы", "Галерея лучших работ"],
-  },
-  {
-    icon: "🧟",
-    name: "HordeZ",
-    tag: "ВЫЖИВАНИЕ",
-    color: "#a78bfa",
-    players: "48",
-    desc: "Уникальный зомби-апокалипсис режим. Волны орд нежити, кооперативное выживание и прокачка персонажа.",
-    features: ["30+ волн врагов", "Кооп до 8 игроков", "Дерево прокачки", "Уникальные боссы"],
-  },
-  {
-    icon: "🏆",
-    name: "Prison",
-    tag: "РПГ",
-    color: "#facc15",
-    players: "56",
-    desc: "Начни с нуля в тюрьме и выбейся в миллионеры! Майни, торгуй, выполняй задания и повышай ранг.",
-    features: ["26 рангов шахтёра", "Ганги и территории", "Аукционный дом", "Престиж-система"],
-  },
-];
+
 
 const donateItems = [
   {
@@ -132,15 +77,12 @@ const donateItems = [
 ];
 
 const stats = [
-  { value: "12,847", label: "Игроков онлайн", icon: "Users" },
-  { value: "6", label: "Игровых режимов", icon: "Gamepad2" },
   { value: "3 года", label: "На рынке", icon: "Shield" },
   { value: "99.9%", label: "Аптайм сервера", icon: "Zap" },
 ];
 
 export default function Index() {
   const [copied, setCopied] = useState(false);
-  const [activeMode, setActiveMode] = useState(0);
 
   const copyIP = () => {
     navigator.clipboard.writeText(SERVER_IP);
@@ -162,11 +104,9 @@ export default function Index() {
             style={{ background: "linear-gradient(135deg, #4ade80, #16a34a)" }}>
             ⛏️
           </div>
-          <span className="font-oswald font-bold text-xl tracking-wider text-white">CRAFT<span style={{ color: "#4ade80" }}>WORLD</span></span>
+          <span className="font-oswald font-bold text-xl tracking-wider text-white">STEAM<span style={{ color: "#4ade80" }}>PUNK</span></span>
         </div>
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
-          <a href="#modes" className="hover:text-white transition-colors">Режимы</a>
-          <a href="#donate" className="hover:text-white transition-colors">Донат</a>
           <a href="#stats" className="hover:text-white transition-colors">Сервер</a>
         </div>
         <button onClick={copyIP}
@@ -203,20 +143,20 @@ export default function Index() {
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold mb-8 animate-fade-in"
             style={{ background: "rgba(74,222,128,0.1)", border: "1px solid rgba(74,222,128,0.3)", color: "#4ade80" }}>
             <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse inline-block" />
-            12,847 игроков онлайн прямо сейчас
+            Сервер онлайн
           </div>
 
           <h1 className="font-oswald font-black text-6xl md:text-8xl lg:text-9xl leading-none mb-6 tracking-tight"
             style={{ textShadow: "0 0 80px rgba(74,222,128,0.3)" }}>
-            CRAFT
+            STEAM
             <span style={{ color: "#4ade80", display: "block", textShadow: "0 0 40px rgba(74,222,128,0.8)" }}>
-              WORLD
+              PUNK
             </span>
           </h1>
 
           <p className="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Эпический Minecraft сервер с <span className="text-white font-semibold">6 уникальными режимами</span>.
-            Присоединяйся к тысячам игроков и начни своё приключение прямо сейчас.
+            Эпический Minecraft сервер.
+            Присоединяйся и начни своё приключение прямо сейчас.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -268,82 +208,7 @@ export default function Index() {
         </div>
       </section>
 
-      {/* GAME MODES */}
-      <section id="modes" className="py-20 px-6 md:px-12">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-14">
-            <span className="inline-block text-xs font-bold tracking-[0.3em] uppercase mb-4"
-              style={{ color: "#4ade80" }}>Игровые режимы</span>
-            <h2 className="font-oswald font-bold text-5xl md:text-6xl text-white">
-              ВЫБЕРИ СВОЙ СТИЛЬ ИГРЫ
-            </h2>
-            <p className="text-gray-400 mt-4 max-w-xl mx-auto">
-              6 уникальных режимов — от классического выживания до хардкорных мини-игр
-            </p>
-          </div>
 
-          {/* Mode tabs */}
-          <div className="flex flex-wrap justify-center gap-3 mb-10">
-            {gameModes.map((mode, i) => (
-              <button key={i} onClick={() => setActiveMode(i)}
-                className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200"
-                style={{
-                  background: activeMode === i ? `${mode.color}20` : "rgba(255,255,255,0.04)",
-                  border: `1px solid ${activeMode === i ? mode.color + "60" : "rgba(255,255,255,0.08)"}`,
-                  color: activeMode === i ? mode.color : "#9ca3af",
-                }}>
-                <span>{mode.icon}</span>
-                {mode.name}
-              </button>
-            ))}
-          </div>
-
-          {/* Active mode card */}
-          <div className="rounded-3xl overflow-hidden transition-all duration-500"
-            style={{ border: `1px solid ${gameModes[activeMode].color}25`, background: `linear-gradient(135deg, ${gameModes[activeMode].color}08, rgba(8,12,16,0.9))` }}>
-            <div className="grid md:grid-cols-2 gap-0">
-              <div className="p-10">
-                <span className="inline-block text-xs font-bold tracking-[0.3em] uppercase px-3 py-1 rounded-full mb-4"
-                  style={{ background: `${gameModes[activeMode].color}20`, color: gameModes[activeMode].color }}>
-                  {gameModes[activeMode].tag}
-                </span>
-                <h3 className="font-oswald font-bold text-5xl text-white mb-4">
-                  {gameModes[activeMode].name}
-                </h3>
-                <p className="text-gray-300 text-base leading-relaxed mb-8">
-                  {gameModes[activeMode].desc}
-                </p>
-                <div className="flex items-center gap-2 text-sm mb-8"
-                  style={{ color: gameModes[activeMode].color }}>
-                  <span className="w-2 h-2 rounded-full animate-pulse inline-block"
-                    style={{ background: gameModes[activeMode].color }} />
-                  {gameModes[activeMode].players} игроков онлайн
-                </div>
-                <button className="flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold transition-all duration-200 hover:scale-105"
-                  style={{ background: gameModes[activeMode].color, color: "#0a0f14" }}>
-                  <Icon name="Play" size={16} />
-                  Играть сейчас
-                </button>
-              </div>
-              <div className="p-10 flex flex-col justify-center"
-                style={{ background: "rgba(0,0,0,0.2)", borderLeft: `1px solid ${gameModes[activeMode].color}20` }}>
-                <h4 className="font-semibold text-white mb-6 text-sm uppercase tracking-widest">Особенности режима</h4>
-                <ul className="space-y-4">
-                  {gameModes[activeMode].features.map((f, i) => (
-                    <li key={i} className="flex items-center gap-3 text-gray-200">
-                      <div className="w-6 h-6 rounded-lg flex items-center justify-center flex-shrink-0"
-                        style={{ background: `${gameModes[activeMode].color}25` }}>
-                        <Icon name="Check" size={12} style={{ color: gameModes[activeMode].color }} />
-                      </div>
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* DONATE */}
       <section id="donate" className="py-20 px-6 md:px-12">
@@ -448,7 +313,7 @@ export default function Index() {
               ⛏️
             </div>
             <span className="font-oswald font-bold text-lg tracking-wider">
-              CRAFT<span style={{ color: "#4ade80" }}>WORLD</span>
+              STEAM<span style={{ color: "#4ade80" }}>PUNK</span>
             </span>
           </div>
           <div className="flex items-center gap-6 text-sm text-gray-500">
@@ -458,7 +323,7 @@ export default function Index() {
             <a href="#" className="hover:text-white transition-colors">Telegram</a>
           </div>
           <div className="text-gray-600 text-xs">
-            © 2024 CraftWorld. Не связан с Mojang Studios.
+            © 2024 SteamPunk. Не связан с Mojang Studios.
           </div>
         </div>
       </footer>
