@@ -2,6 +2,7 @@ import { useState } from "react";
 import Icon from "@/components/ui/icon";
 
 const HERO_IMAGE = "https://cdn.poehali.dev/projects/02d41f7e-f989-4075-89dd-56e64542b5a2/files/d14ff8b4-304c-4d5a-91d8-c9f7712f2268.jpg";
+const STEAMPUNKX_LOGO = "https://cdn.poehali.dev/projects/02d41f7e-f989-4075-89dd-56e64542b5a2/bucket/54fc8589-0096-43e5-b4ca-a452536506ee.png";
 const SERVER_IP = "188.127.241.24:32398";
 
 
@@ -81,6 +82,54 @@ const stats = [
   { value: "99.9%", label: "Аптайм сервера", icon: "Zap" },
 ];
 
+const mods = [
+  {
+    name: "WorldEdit",
+    desc: "Мощный редактор мира — быстрое строительство и редактирование больших областей",
+    icon: "🗺️",
+    version: "7.3.0",
+    url: "https://modrinth.com/plugin/worldedit",
+    color: "#60a5fa",
+    glowColor: "rgba(96,165,250,0.3)",
+  },
+  {
+    name: "Prefab",
+    desc: "Быстрое размещение готовых структур и построек прямо в игре",
+    icon: "🏗️",
+    version: "5.1.0",
+    url: "https://modrinth.com/mod/prefab",
+    color: "#f59e0b",
+    glowColor: "rgba(245,158,11,0.3)",
+  },
+  {
+    name: "Gabous Libs",
+    desc: "Библиотека зависимостей для корректной работы других модов сборки",
+    icon: "📦",
+    version: "1.2.4",
+    url: "https://modrinth.com/mod/gabous-libs",
+    color: "#a78bfa",
+    glowColor: "rgba(167,139,250,0.3)",
+  },
+  {
+    name: "Better Days",
+    desc: "Настройка длины дня и ночи — больше времени для строительства",
+    icon: "🌅",
+    version: "2.3.1",
+    url: "https://modrinth.com/mod/better-days",
+    color: "#fb923c",
+    glowColor: "rgba(251,146,60,0.3)",
+  },
+  {
+    name: "Continuity",
+    desc: "Связные текстуры блоков — стекло и другие блоки без швов",
+    icon: "🪟",
+    version: "3.0.0",
+    url: "https://modrinth.com/mod/continuity",
+    color: "#4ade80",
+    glowColor: "rgba(74,222,128,0.3)",
+  },
+];
+
 export default function Index() {
   const [copied, setCopied] = useState(false);
 
@@ -97,28 +146,29 @@ export default function Index() {
         style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")` }} />
 
       {/* TOP ANNOUNCEMENT BANNER */}
-      <div className="relative z-50 w-full flex items-center justify-center gap-3 px-4 py-2.5 text-sm font-bold"
+      <div className="relative z-50 w-full flex items-center justify-center gap-3 px-4 py-2 text-sm font-bold"
         style={{ background: "linear-gradient(90deg, #78350f, #b45309, #d97706, #b45309, #78350f)", borderBottom: "1px solid rgba(251,191,36,0.4)" }}>
+        <img src={STEAMPUNKX_LOGO} alt="SteampunkX" className="w-8 h-8 rounded-md object-cover flex-shrink-0" />
         <span className="text-yellow-200 animate-pulse">⚙️</span>
         <span style={{ color: "#fef3c7", textShadow: "0 0 10px rgba(251,191,36,0.6)" }}>
           Нужна сборка Steampunk [LPS] v18
         </span>
         <span className="text-yellow-200 animate-pulse">⚙️</span>
+        <img src={STEAMPUNKX_LOGO} alt="SteampunkX" className="w-8 h-8 rounded-md object-cover flex-shrink-0" />
       </div>
 
       {/* NAV */}
       <nav className="fixed top-[40px] left-0 right-0 z-40 flex items-center justify-between px-6 md:px-12 py-4"
         style={{ background: "linear-gradient(to bottom, rgba(8,12,16,0.95), transparent)", backdropFilter: "blur(12px)" }}>
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg flex items-center justify-center text-lg"
-            style={{ background: "linear-gradient(135deg, #4ade80, #16a34a)" }}>
-            ⛏️
-          </div>
+          <img src={STEAMPUNKX_LOGO} alt="SteampunkX" className="w-9 h-9 rounded-lg object-cover flex-shrink-0"
+            style={{ boxShadow: "0 0 12px rgba(245,158,11,0.5)" }} />
           <span className="font-oswald font-bold text-xl tracking-wider text-white">STEAM<span style={{ color: "#4ade80" }}>PUNK</span></span>
         </div>
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
           <a href="#stats" className="hover:text-white transition-colors">Сервер</a>
           <a href="#screenshots" className="hover:text-white transition-colors">Галерея</a>
+          <a href="#mods" className="hover:text-white transition-colors">Моды</a>
           <a href="#donate" className="hover:text-white transition-colors">Донат</a>
         </div>
         <button onClick={copyIP}
@@ -301,6 +351,67 @@ export default function Index() {
         </div>
       </section>
 
+      {/* MODS */}
+      <section id="mods" className="py-20 px-6 md:px-12">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-14">
+            <span className="inline-block text-xs font-bold tracking-[0.3em] uppercase mb-4"
+              style={{ color: "#60a5fa" }}>Необходимые моды</span>
+            <h2 className="font-oswald font-bold text-5xl md:text-6xl text-white">
+              СКАЧАЙ МОДЫ
+            </h2>
+            <p className="text-gray-400 mt-4 max-w-xl mx-auto">
+              Установи эти моды для полноценной игры на сервере Steampunk [LPS] v18
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
+            {mods.map((mod, i) => (
+              <div key={i}
+                className="relative rounded-2xl flex flex-col transition-all duration-300 hover:scale-105 hover:-translate-y-1"
+                style={{
+                  background: `linear-gradient(160deg, ${mod.color}12, rgba(8,12,16,0.95))`,
+                  border: `1px solid ${mod.color}30`,
+                  boxShadow: `0 0 30px ${mod.glowColor}`,
+                }}>
+                <div className="p-6 flex-1">
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 text-2xl"
+                    style={{ background: `${mod.color}20` }}>
+                    {mod.icon}
+                  </div>
+                  <h3 className="font-oswald font-bold text-xl text-white mb-1">{mod.name}</h3>
+                  <div className="inline-flex items-center gap-1 mb-3">
+                    <span className="text-xs font-semibold px-2 py-0.5 rounded-full"
+                      style={{ background: `${mod.color}20`, color: mod.color }}>
+                      v{mod.version}
+                    </span>
+                  </div>
+                  <p className="text-gray-400 text-xs leading-relaxed">{mod.desc}</p>
+                </div>
+                <div className="px-6 pb-6">
+                  <a
+                    href={mod.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl font-bold text-sm transition-all duration-200 hover:opacity-90"
+                    style={{ background: mod.color, color: "#0a0f14" }}>
+                    <Icon name="Download" size={14} />
+                    Скачать
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 text-center">
+            <p className="text-gray-500 text-sm">
+              <Icon name="Info" size={14} className="inline mr-1" style={{ color: "#60a5fa" }} />
+              Fabric 1.20.1 · Все моды бесплатны · Установи перед первым входом
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* DONATE */}
       <section id="donate" className="py-20 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
@@ -399,10 +510,8 @@ export default function Index() {
         style={{ borderColor: "rgba(255,255,255,0.06)" }}>
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg flex items-center justify-center text-lg"
-              style={{ background: "linear-gradient(135deg, #4ade80, #16a34a)" }}>
-              ⛏️
-            </div>
+            <img src={STEAMPUNKX_LOGO} alt="SteampunkX" className="w-8 h-8 rounded-lg object-cover flex-shrink-0"
+              style={{ boxShadow: "0 0 10px rgba(245,158,11,0.4)" }} />
             <span className="font-oswald font-bold text-lg tracking-wider">
               STEAM<span style={{ color: "#4ade80" }}>PUNK</span>
             </span>
