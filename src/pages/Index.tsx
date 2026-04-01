@@ -107,7 +107,7 @@ export default function Index() {
       </div>
 
       {/* NAV */}
-      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-4"
+      <nav className="fixed top-[40px] left-0 right-0 z-40 flex items-center justify-between px-6 md:px-12 py-4"
         style={{ background: "linear-gradient(to bottom, rgba(8,12,16,0.95), transparent)", backdropFilter: "blur(12px)" }}>
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 rounded-lg flex items-center justify-center text-lg"
