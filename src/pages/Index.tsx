@@ -93,10 +93,7 @@ const donateItems = [
   },
 ];
 
-const stats = [
-  { value: "3 года", label: "На рынке", icon: "Cog" },
-  { value: "99.9%", label: "Аптайм сервера", icon: "Zap" },
-];
+const stats: { value: string; label: string; icon: string }[] = [];
 
 const mods = [
   {
@@ -107,6 +104,7 @@ const mods = [
     url: "https://modrinth.com/plugin/worldedit",
     color: C.steam,
     glowColor: "rgba(168,196,216,0.25)",
+    author: "XUZHOU",
   },
   {
     name: "Prefab",
@@ -116,6 +114,7 @@ const mods = [
     url: "https://modrinth.com/mod/prefab",
     color: C.brass,
     glowColor: "rgba(201,168,76,0.25)",
+    author: "XUZHOU",
   },
   {
     name: "Gabous Libs",
@@ -125,6 +124,7 @@ const mods = [
     url: "https://modrinth.com/mod/gabous-libs",
     color: C.copper,
     glowColor: "rgba(184,115,51,0.25)",
+    author: "XUZHOU",
   },
   {
     name: "Better Days",
@@ -134,6 +134,7 @@ const mods = [
     url: "https://modrinth.com/mod/better-days",
     color: C.copperLight,
     glowColor: "rgba(212,149,106,0.25)",
+    author: "XUZHOU",
   },
   {
     name: "Continuity",
@@ -143,6 +144,7 @@ const mods = [
     url: "https://modrinth.com/mod/continuity",
     color: C.brassLight,
     glowColor: "rgba(223,192,110,0.25)",
+    author: "XUZHOU",
   },
 ];
 
@@ -597,11 +599,18 @@ export default function Index() {
                     {mod.icon}
                   </div>
                   <h3 className="font-oswald font-bold text-xl mb-1" style={{ color: C.parchment }}>{mod.name}</h3>
-                  <div className="inline-flex items-center gap-1 mb-3">
+                  <div className="inline-flex items-center gap-1 mb-3 flex-wrap">
                     <span className="text-xs font-semibold px-2 py-0.5 rounded"
                       style={{ background: `${mod.color}20`, color: mod.color, border: `1px solid ${mod.color}30` }}>
                       v{mod.version}
                     </span>
+                    {mod.author && (
+                      <span className="text-xs font-semibold px-2 py-0.5 rounded flex items-center gap-1"
+                        style={{ background: `${C.brass}18`, color: C.brass, border: `1px solid ${C.brass}40` }}>
+                        <Icon name="User" size={10} />
+                        {mod.author}
+                      </span>
+                    )}
                   </div>
                   <p className="text-xs leading-relaxed" style={{ color: "#9a7040" }}>{mod.desc}</p>
                 </div>
